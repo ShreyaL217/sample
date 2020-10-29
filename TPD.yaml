@@ -1,0 +1,174 @@
+sdladmin_passwd: $6$fd$L5IWzc/Etnhl3VQ3toA4/.JoKUrHIH4/muNrblaocaY9CK9H2Lxja2EdnF5kNXYLzpXW0Qsx/L1o541u/DJsj0
+root_passwd: $6$fd$L5IWzc/Etnhl3VQ3toA4/.JoKUrHIH4/muNrblaocaY9CK9H2Lxja2EdnF5kNXYLzpXW0Qsx/L1o541u/DJsj0
+users-file: "/opt/ipv4/sdl-prepare/orchestration/encryption/vnf_users.json"
+timezone: Asia/Kolkata
+image-registry-url: "bcmt-registry:5000"
+flavor-type: small
+is_controller_worker: true
+meta-cni-plugin: multus
+ntp-server-ips:
+    - 10.39.255.232
+    - 172.17.2.251
+
+    
+application-parameters:     
+   locality: bangalore
+   sdl-instance: A
+   lsdl-instance: '1'
+   database-profiles:
+      replicasPerSite : 2
+
+
+
+external-ips:
+    ipv4:
+       - 192.1.17.13
+
+
+networks:
+    ext-oam-network:
+        host_device: eth3
+        ipv4:
+            subnets:
+                - subnet: 192.1.16.0/24
+                  allocation-pool:
+                    - start: 192.1.16.106
+                      end: 192.1.16.186               
+                  routes:
+                    - destination: 192.1.18.0/24
+                      gateway: 192.1.16.254
+
+            diag_vip_ipv4: 192.1.16.106
+            confd_vip_ipv4: 192.1.16.107
+            tele_vip_ipv4: 192.1.16.108
+            oes:
+               - 192.1.16.109
+               - 192.1.16.110
+               - 192.1.16.167
+            dbaccess:
+               - 192.1.16.168
+               - 192.1.16.169
+              
+            dbstorage:
+               - 192.1.16.170
+               - 192.1.16.171
+               
+            ntf:
+               - 192.1.16.172
+               - 192.1.16.173
+               - 192.1.16.174
+            tele:
+               - 192.1.16.175
+               - 192.1.16.176
+               - 192.1.16.177
+            diag:
+               - 192.1.16.178
+               - 192.1.16.179
+               - 192.1.16.180
+            cas:
+               - 192.1.16.181
+               - 192.1.16.182
+               - 192.1.16.183
+            disco:
+               - 192.1.16.184
+               - 192.1.16.185
+               - 192.1.16.186
+
+    ext-app-network:
+        host_device: eth4
+        ipv4:
+            subnets:
+                - subnet: 192.1.17.0/24
+                  allocation-pool:
+                    - start: 192.1.17.96
+                      end: 192.1.17.165               
+                  routes:
+                    - destination: 10.45.129.0/24
+                      gateway: 192.1.17.254
+            disco_vip_ipv4: 192.1.17.96
+            oes:
+                - 192.1.17.97
+                - 192.1.17.98
+                - 192.1.17.99
+            dbaccess:
+                - 192.1.17.110
+                - 192.1.17.156
+            ntf:
+                - 192.1.17.157
+                - 192.1.17.158
+                - 192.1.17.159
+            cas:
+               - 192.1.17.160
+               - 192.1.17.161
+               - 192.1.17.162
+            disco:
+               - 192.1.17.163
+               - 192.1.17.164
+               - 192.1.17.165
+
+        
+    int-oam-network:
+        host_device: eth6
+        ipv4:
+            subnets:
+                - subnet: 192.168.1.0/24
+                  allocation-pool:
+                    - start: 192.168.1.105
+                      end: 192.168.1.183              
+                  routes:
+                    - destination: 192.168.3.0/24
+                      gateway: 192.168.1.254
+            oes_int_vip_ipv4: 192.168.1.105
+            diag_int_vip_ipv4: 192.168.1.106
+            oes:
+                - 192.168.1.107
+                - 192.168.1.108
+                - 192.168.1.109
+            dbaccess:
+                - 192.168.1.110
+                - 192.168.1.166
+            dbstorage:
+                - 192.168.1.167
+                - 192.168.1.168
+            ntf:
+                - 192.168.1.169
+                - 192.168.1.170
+                - 192.168.1.171
+            tele:
+                - 192.168.1.172
+                - 192.168.1.173
+                - 192.168.1.174
+            diag:
+                - 192.168.1.175
+                - 192.168.1.176
+                - 192.168.1.177
+            cas:
+                - 192.168.1.178
+                - 192.168.1.179
+                - 192.168.1.180
+            disco:
+                - 192.168.1.181
+                - 192.168.1.182
+                - 192.168.1.183
+       
+    int-db-network:
+        host_device: eth7
+        ipv4:
+            subnets:
+                - subnet: 192.168.2.0/24
+                  allocation-pool:
+                    - start: 192.168.2.88
+                      end: 192.168.2.95             
+                  routes:
+                    - destination: 192.168.4.0/24
+                      gateway: 192.168.2.254
+            dbaccess:
+                - 192.168.2.88
+                - 192.168.2.89
+            dbstorage:
+                - 192.168.2.90
+                - 192.168.2.91
+            ntf:
+                - 192.168.2.92
+                - 192.168.2.93
+                - 192.168.2.94
